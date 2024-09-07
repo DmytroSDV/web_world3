@@ -41,7 +41,7 @@ DEBUG = os.getenv("DEBUG")
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
-    "distant-evy-webworld3-d6b3f09d.koyeb.app/",
+    "distant-evy-webworld3-d6b3f09d.koyeb.app",
     "localhost",
     "127.0.0.1",
 ]
