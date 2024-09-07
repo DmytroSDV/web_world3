@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Now</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'app_accounts/images/icons/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'app_accounts/css/parking.css' %}">
+    <script src="{% static 'app_accounts/js/parking.js' %}" defer></script>
+</head>
+<body>
+    <div class="bg-box">
+        <img src="{% static 'slider-bg.jpg' %}" alt="Background Image">
+    </div>
+    <div class="navbar">
+        <a class="navbar-brand" href="/">
+            WEB_WORLD: PARK-AUTO
+        </a>
+    </div>
+
+    <div class="parking-container">
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'if_parking' in message.tags %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <section class="photo-upload">
+            <h2>Car parking</h2>
+            <form method="POST" enctype="multipart/form-data" action="{% url 'app_photo:upload' %}">
+                {% csrf_token %}
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for field in form %}
+                                {% for error in field.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            {% endfor %}
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+
+                <div id="uploaded-car-photos" class="uploaded-photos-container">
+                    {% if car_photos %}
+                        {% for photo in car_photos %}
+                            <img src="{{ photo.image }}" alt="Car photo" class="uploaded-car-photo">
+                        {% endfor %}
+                    {% else %}
+                        <p>There are no uploaded photos.</p>
+                    {% endif %}
+                </div>
+
+                <div class="custom-file-upload">
+                    <label for="car-photo-upload" class="custom-file-label">Park the car</label>
+                    <input type="file" id="car-photo-upload" name="image" accept="image/*" class="custom-file-input">
+                </div>
+                <div class="button-container">
+                    <button type="submit" class="upload-button" disabled>Save</button>
+                    <button type="button" class="cancel-button" onclick="window.location.reload();">Cancel</button>
+                </div>
+                <div class="back-to-profile-container">              
+                    <a href="{% url 'app_accounts:profile' username=user.username %}" class="back-to-profile">Back to Profile</a>
+                </div>
+
+                <div class="pricing-options">
+                    <p>Select a Parking Rate:</p>
+                    {% for rate in rates %}
+                        <label>
+                            <input type="radio" name="rate" value="{{ rate.id }}">
+                            {{ rate.rate_name }} - ${{ rate.rate_per_hour }}
+                        </label>
+                    {% endfor %}
+                </div>
+
+            </form>      
+        </section>
+    </div>
+</body>
+</html>

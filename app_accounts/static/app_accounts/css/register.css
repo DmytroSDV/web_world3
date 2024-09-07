@@ -1,0 +1,471 @@
+/* Importing Google Fonts for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.navbar-brand {
+    position: absolute;
+    margin-left: 350px;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #b1afaf;
+}
+/* Background container */
+.bg-box {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Background image */
+.bg-box img {
+    width: 100%;
+    height: 100vh; 
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+/* Overlay */
+.bg-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(21, 82, 99, 0.65), rgba(21, 82, 99, 0.55));
+}
+
+/* Defining root CSS variables for easy theme management */
+:root {
+    --white: #ffffff; 
+    --text-clr: #1c1e21; 
+    --primary: #007bff; 
+    --secondary: #ced4da; 
+    --input-bg: rgba(255, 255, 255, 0.85); 
+    --btn-hvr: #0056b3;
+}
+
+
+/* Applying base styles for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    min-height: 100vh; 
+    color: var(--text-clr); 
+    margin: 0; 
+    padding: 0;
+    overflow-x: hidden; 
+}
+
+/* Styling the main wrapper for the form */
+.wrapper {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(10px); 
+    position: relative; 
+    margin-top: 20px; 
+    margin-bottom: 20px;   
+}
+
+/* Form container styles for layout and background */
+.form-container {
+    background: var(--input-bg); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Styling for the form header */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--primary); 
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Input group layout with relative positioning for icons */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+
+.input-group {
+    position: relative;
+}
+
+.input-group .validation-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    display: none;
+}
+
+.input-group.valid .validation-icon.valid-icon {
+    color: green;
+    display: block;
+}
+
+.input-group.invalid .validation-icon.invalid-icon {
+    color: red;
+    display: block;
+}
+
+/* Label styling above input fields */
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-clr); 
+}
+
+
+/* Icon styling within input fields */
+.input-group .icon {
+    position: absolute;
+    left: 10px;
+    top: 42px;
+    color: var(--primary);
+    font-size: 18px;
+    line-height: 0;
+}
+
+
+/* Input field styling */
+input {
+    width: 100%;
+    padding: 10px 40px; 
+    border-radius: 15px;
+    border: 1px solid var(--secondary); 
+    background: var(--input-bg);
+    transition: border-color 0.3s ease; 
+}
+
+
+/* Focus state for inputs */
+input:focus {
+    border-color: var(--primary); 
+    outline: none; 
+}
+
+
+:root {
+    --primary: #007bff; /* Primary color */
+    --btn-hvr: #0056b3; /* Hover color */
+    --white: #fff; /* White color */
+}
+
+/* Button styling with hover effects and transitions */
+/* Add styles for the registration button */
+/* Основные стили для кнопки регистрации */
+.register-button {
+    width: 100%;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    font-size: 16px;
+    background: linear-gradient(#2464d1, #0846a3);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+/* Button hover state */
+.register-button:hover {
+    background: linear-gradient(#0846a3, #2464d1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.disabled-button {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: grey;
+    color: #ddd;
+    cursor: not-allowed;
+    box-shadow: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.login-button:not(.disabled-button):hover {
+    background: linear-gradient(45deg, var(--btn-hvr), var(--primary));
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.login-button:not(.disabled-button):active {
+    background: linear-gradient(45deg, var(--btn-hvr), var(--primary)); 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.required {
+    color: red;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.close-btn {
+    position: absolute;
+    top: -35px;
+    right: -18px;
+    font-size: 34px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.close-btn:hover {
+    color: #cc1818;
+}
+
+
+.close-btn ion-icon {
+    font-size: 32px;
+    color: #333;
+}
+
+.close-btn:hover ion-icon {
+    color: #e74c3c;
+}
+
+
+.login-redirect {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-redirect p {
+    font-size: 14px;
+    color: #555;
+}
+
+.login-redirect a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-redirect a:hover {
+    color: #0056b3;
+}
+
+button:disabled,
+button.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:not(:disabled) {
+    background-color: #007bff;
+    cursor: pointer;
+}
+
+
+.agreement-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.agreement-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.agreement-text a:hover {
+    color: #0056b3;
+}
+.input-group {
+    position: relative;
+    top: 10px;
+}
+
+.input-group .validation-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    display: none;
+}
+
+.input-group.valid .validation-icon.valid-icon {
+    margin-top: 13px;
+    color: green;
+    display: block;
+}
+
+.input-group.invalid .validation-icon.invalid-icon {
+    margin-top: 13px;
+    color: red;
+    display: block;
+}
+.input-group input {
+    transition: border 0.3s ease;
+    border: 1px solid #ccc; 
+}
+
+.input-group input:hover {
+    border-color: #007bff; 
+}
+
+.input-group input:valid {
+    border-color: #28a745; 
+}
+
+.input-group input:invalid {
+    border-color: #dc3545; 
+}
+
+.input-group input:focus {
+    border-color: #007bff; 
+}
+
+.input-group input:hover {
+    border-color: #007bff; 
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.alert-debug {
+    background-color: #6c757d;
+    color: white;
+}
+
+.error {
+    color: #dc3545; 
+    font-size: 0.875em;
+    margin-top: 5px;
+}
+
+.alert.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.alert-error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+
+input[type="password"].strong-password {
+    border-color: #28a745;
+}
+
+
+input[type="password"].medium-password {
+    border-color: #ffc107;
+}
+
+
+input[type="password"].weak-password {
+    border-color: #dc3545;
+}
+
+
+input[type="password"].no-match {
+    border-color: #dc3545;
+}
+
+
+input[type="password"].match {
+    border-color: #28a745;
+}
+
+.toggle-password {
+    position: absolute;
+    font-size: 22px;
+    right: 10px; /* Отступ справа */
+    top: 54px; /* Центрирование по вертикали */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--grey); /* Цвет иконки */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

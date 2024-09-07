@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    {% load static %}
+    <link rel="icon" href="{% static 'app_accounts/images/icons/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'app_accounts/css/profile.css' %}">
+    <script src="{% static 'app_accounts/js/profile.js' %}" defer></script>
+</head>
+<body>
+    <div class="bg-box">
+        <img src="{% static 'slider-bg.jpg' %}" alt="">
+    </div>
+    <div class="navbar">
+        <a class="navbar-brand" href="/">
+            WEB_WORLD: PARK-AUTO
+        </a>
+        <div class="profile-actions">
+            <a class="btn" href="{% url 'app_accounts:parking_history' %}">History of Parking</a>
+            <a class="btn" href="{% url 'app_accounts:parking' %}">Parking Now</a>
+            <a class="btn" href="{% url 'app_accounts:edit_profile' user.username %}">Edit Profile</a>
+            <a class="btn" href="{% url 'app_home:index' %}">Back to Main</a>
+            <a class="btn" href="{% url 'app_accounts:logout' %}">Logout</a>
+        </div>
+    </div>
+
+    <div class="profile-container">
+        <header class="profile-header">
+            <div class="avatar-section">
+                <div class="avatar-wrapper">
+                    {% if user_profile_avatar.avatar %}
+                        <img id="avatar" src="{{ user_profile_avatar.avatar }}" alt="User avatar">
+                    {% else %}
+                        <img id="avatar" src="{% static 'app_accounts/images/default_avatar.jpg' %}" alt="Default avatar">
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="user-details">
+                <h1 id="username">{{ user.full_name }}</h1>
+                <div class="status-container">
+                    <span class="status-text">Status:</span>
+                    <span class="status-icon online-status"></span>
+                    <span class="status-label">Online</span>
+                </div>
+                <p>Email: {{ user.email }}</p>
+                <p>Phone: {{ user.phone_number }}</p>
+                <p>Address: {{ user.address }}</p>
+                <p>Balance: ${{ user.money_balance }}</p> 
+                <button class="btn-top-up" onclick="toggleTopUpForm()">Top Up Balance</button>
+
+
+                <div id="balance-top-up-form" class="top-up-form">
+                    <form method="POST" action="{% url 'app_accounts:top_up_balance' %}">
+                        {% csrf_token %}
+                        <input type="number" name="amount" placeholder="Enter amount" min="1" required class="top-up-input">
+                        <div class="form-buttons">
+                            <button type="submit" class="btn-submit">Submit</button>
+                            <button type="button" class="btn-cancel" onclick="toggleTopUpForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+    
+        <section class="additional-info">
+            <h2>About Me</h2>
+            <p>{{ user_profile.about_me|default:"No information provided." }}</p>
+
+            <h2>Recent Activity</h2>
+            <ul>
+                <li>Last parking session: {{ last_parking_text }}</li>
+                <li>Membership since: {{ membership_since }}</li>
+                <li>Total parkings: {{ total_parkings }}</li>
+            </ul>
+        </section>
+        <section class="current-parking">
+            <h2>Current Parking</h2>
+            {% if latest_record %}
+                <ul>
+                    <li>Status: <span class="status-dot"></span> {{ latest_record.status }}</li>
+                    <li>License Number: {{ latest_record.license_number }}</li>
+                    <li>Rate: {{ latest_record.rate_name }}</li>
+                    <li>Parked Since: {{ latest_record.entry_time }}</li>
+                    <li>Duration: {{ latest_record.hours_parked }} hours</li>
+                </ul>
+                {% if parked_car_photo_url %}
+                    <img src="{{ parked_car_photo_url }}" alt="Parked Car Image" class="parked-car-photo">
+                {% else %}
+                    <p>No photo available for the parked car.</p>
+                {% endif %}
+            {% else %}
+                <p>No cars currently parked.</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>
