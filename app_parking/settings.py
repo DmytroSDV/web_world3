@@ -41,13 +41,13 @@ DEBUG = os.getenv("DEBUG")
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = [
-    "marked-hildy-webworld3-cc269fef.koyeb.app/",
+    "distant-evy-webworld3-d6b3f09d.koyeb.app/",
     "localhost",
     "127.0.0.1",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://marked-hildy-webworld3-cc269fef.koyeb.app/",
+    "https://distant-evy-webworld3-d6b3f09d.koyeb.app/",
 ]
 
 # Application definition
