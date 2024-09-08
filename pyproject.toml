@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "finallproject"
+name = "web_world_parking"
 version = "0.1.0"
 description = "app_parking"
 authors = ["IVadymMarchenko <topim31@gmail.com>"]

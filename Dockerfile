@@ -52,7 +52,7 @@ COPY --from=builder /usr/local /usr/local
 COPY . /app/
 
 # Вказуємо порт
-EXPOSE 8001
+EXPOSE 8000
 
 # Команда для запуску програми з параметром таймауту воркерів
 CMD ["gunicorn", "--worker-class", "gevent", "app_parking.wsgi:application", "--bind", "0.0.0.0:8001", "--timeout", "300"]
