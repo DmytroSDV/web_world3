@@ -47,7 +47,11 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://distant-evy-webworld3-d6b3f09d.koyeb.app/",
+    "https://distant-evy-webworld3-d6b3f09d.koyeb.app",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://distant-evy-webworld3-d6b3f09d.koyeb.app",
 ]
 
 # Application definition
