@@ -66,7 +66,7 @@ class OCRProcessor:
 
     def __init__(self):
         """Initializes the PaddleOCR object for text recognition."""
-        self.ocr = PaddleOCR(use_angle_cls=True, use_gpu=False, lang="en")
+        self.ocr = PaddleOCR()
 
     def process(self, image):
         """Performs OCR on an image and returns the recognized text."""
