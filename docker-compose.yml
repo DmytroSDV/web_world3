@@ -22,13 +22,13 @@ services:
     # platform: linux/amd64
     build: .
     # command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    command: gunicorn --worker-class gevent app_parking.wsgi:application --bind 0.0.0.0:8002 --timeout 300
+    command: gunicorn --worker-class gevent app_parking.wsgi:application --bind 0.0.0.0:8000 --timeout 300
     # volumes:
     #   - .:/app
     volumes:
       - .:/code
     ports:
-      - "8002:8002"
+      - "8000:8000"
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB_NAME}
     # environment:
