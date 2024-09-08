@@ -55,5 +55,5 @@ COPY . /app/
 EXPOSE 8000
 
 # Команда для запуску програми з параметром таймауту воркерів
-CMD ["gunicorn", "--worker-class", "gevent", "app_parking.wsgi:application", "--bind", "0.0.0.0:8001", "--timeout", "300"]
+CMD ["gunicorn", "--worker-class", "gevent", "app_parking.wsgi:application", "--bind", "0.0.0.0:8000", "--timeout", "300"]
 # ENTRYPOINT ["/app/entrypoint.sh"]
