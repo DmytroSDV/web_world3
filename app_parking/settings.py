@@ -36,7 +36,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG")
+DEBUG = False
 
 
 # ALLOWED_HOSTS = []
@@ -44,14 +44,17 @@ ALLOWED_HOSTS = [
     "distant-evy-webworld3-d6b3f09d.koyeb.app",
     "localhost",
     "127.0.0.1",
+    "*",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://distant-evy-webworld3-d6b3f09d.koyeb.app",
+    "https://distant-evy-webworld3-d6b3f09d.koyeb.app/",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "https://distant-evy-webworld3-d6b3f09d.koyeb.app",
+    "https://distant-evy-webworld3-d6b3f09d.koyeb.app/",
 ]
 
 # Application definition
