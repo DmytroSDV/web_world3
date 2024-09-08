@@ -1,0 +1,355 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+.navbar-brand {
+    position: absolute;
+    margin-left: 350px;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+    color: #b1afaf;
+}
+
+
+/* Background style */
+.bg-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bg-box img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.bg-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(21, 82, 99, 0.65)), to(rgba(21, 82, 99, 0.55)));
+    background: linear-gradient(to right, rgba(21, 82, 99, 0.65), rgba(21, 82, 99, 0.55));
+}
+
+/* Defining root variables for consistent theming */
+:root {
+    --white: #ffffff;
+    --text-clr: #1c1e21;
+    --primary: #007bff;
+    --secondary: #ced4da;
+    --input-bg: rgba(255, 255, 255, 0.85);
+    --btn-hvr: #0056b3;
+}
+
+
+/* Global styles for resetting margins and padding, setting the box model, and applying the font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+/* Body styles for background gradient, centering content, and setting text color */
+body {
+    background: linear-gradient(to bottom right, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: var(--text-clr);
+}
+
+
+/* Wrapper styles for form layout, with a transparent background and shadow */
+.wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1); 
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); 
+    backdrop-filter: blur(10px);
+}
+
+
+/* Form container with padding, background color, and shadow */
+.form-container {
+    background: var(--input-bg);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Header styles within the form */
+.form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--primary); 
+}
+
+
+/* Input group for organizing label, icon, and input together */
+.input-group {
+    position: relative;
+    margin-bottom: 15px;
+    
+}
+
+
+/* Styling the label above the input */
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: var(--text-clr);
+}
+
+
+/* Styling the icon within the input group */
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(10%); 
+    color: var(--primary);
+    font-size: 18px;
+}
+
+
+/* Input field styling */
+input {
+    width: 100%;
+    padding: 10px 40px; 
+    border-radius: 5px;
+    border: 1px solid var(--secondary);
+    background: var(--input-bg);
+    transition: border-color 0.3s ease; 
+}
+
+/* Основные стили для полей ввода */
+.input-group input {
+    border-radius: 15px;
+    outline: none;
+    transition: border-color 0.3s ease; 
+}
+
+/* Стили для пустого поля (красная граница) */
+.input-group input:invalid {
+    border-color: red;
+}
+
+/* Стили для заполненного поля (зеленая граница) */
+.input-group input:valid {
+    border-color: green;
+}
+
+/* Стили для поля при нажатии и наведении курсора (синяя граница) */
+.input-group input:focus,
+.input-group input:hover {
+    border-color: rgb(12, 84, 240);
+}
+/* Focus state for input fields */
+input:focus {
+    border-color: var(--primary); 
+    outline: none;
+}
+
+
+/* Основные стили для кнопок */
+.login-button {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    background: linear-gradient(#2464d1, #0846a3);
+    color: var(--white);
+    cursor: pointer;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button hover state */
+.login-button:hover {
+    background: linear-gradient(#0846a3, #2464d1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+}
+
+.disabled-button {
+    width: 100%;
+    height: 50px;
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border: none;
+    background-color: grey;
+    color: #ddd;
+    cursor: not-allowed;
+    box-shadow: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.login-button:not(.disabled-button):hover {
+    background: linear-gradient(45deg, var(--btn-hvr), var(--primary));
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.login-button:not(.disabled-button):active {
+    background: linear-gradient(45deg, var(--btn-hvr), var(--primary)); 
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Message styling for displaying validation or error messages */
+.messages {
+    margin-bottom: 15px;
+    color: red; 
+    font-size: 14px;
+}
+
+/* Wrap for buttons and text "or" */
+.button-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    justify-content: center; 
+    margin-top: 20px;
+}
+
+.required:after {
+    content: "*";
+    color: red;
+    margin-left: 5px;
+}
+
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-size: 34px;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.close-btn:hover {
+    color: #cc1818;
+}
+
+
+.close-btn ion-icon {
+    font-size: 32px;
+    color: #333;
+}
+
+.close-btn:hover ion-icon {
+    color: #e74c3c;
+}
+
+
+.agreement-text {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.agreement-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.agreement-text a:hover {
+    color: #0056b3;
+}
+
+.signup-redirect {
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.signup-redirect p {
+    font-size: 14px;
+    color: #555;
+}
+
+.signup-redirect a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-redirect a:hover {
+    color: #0056b3;
+}
+
+.forgot-password-link{
+    margin-top: 20px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.forgot-password-link a {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+.forgot-password-link a:hover {
+    color: #0056b3;
+}
+
+
+.toggle-password {
+    position: absolute;
+    font-size: 22px;
+    right: 10px; /* Отступ справа */
+    top: 54px; /* Центрирование по вертикали */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--grey); /* Цвет иконки */
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

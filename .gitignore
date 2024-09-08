@@ -13,7 +13,6 @@ postgres-data
 0002_alter_car_image_number_car.py
 0002_remove_user_bio.py
 postgres-data
-staticfiles
 db.sqlite3
 poetry.lock
 celerybeat-schedule.bak
